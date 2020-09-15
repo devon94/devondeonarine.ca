@@ -1,0 +1,60 @@
+$total: 300; // total particles
+$orb-size: 150px;
+$particle-size: 2px;
+$time: 8.52s; 
+$base-hue: 80;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: black;
+  overflow: hidden;
+}
+
+.wrap {
+  width: 0; 
+  height: 0; 
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: rotate $time infinite linear; // rotate orb
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotateY(360deg) rotateX(360deg);
+  }
+}
+
+.c {
+  position: absolute;
+  width: $particle-size;
+  height: $particle-size;
+  opacity: 0.75; 
+}
+
+@for $i from 1 through $total {
+  $z: (random(360) * 1deg); // random angle to rotateZ
+  $y: (random(360) * 1deg); // random to rotateX
+  $hue: ((40/$total * $i) + $base-hue); // set hue
+  
+  .c:nth-child(#{$i}){ // grab the nth particle
+    animation: orbit#{$i} $time infinite;
+    animation-delay: ($i * .1s); 
+    background-color: hsla($hue, 100%, 50%, 1);
+  }
+
+  @keyframes orbit#{$i}{ 
+    0% {
+        transform: rotateZ(-$z) rotateY($y) translateX($orb-size) rotateZ($z);
+      }
+    50% {
+        transform: rotateZ(-$z) rotateY($y) translateX( ($orb-size * 0.5) ) rotateZ($z); // translateX * 3
+     }
+    100% {
+      transform: rotateZ(-$z) rotateY($y) translateX($orb-size) rotateZ($z);
+    }
+
+  }
+}
