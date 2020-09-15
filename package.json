@@ -20,7 +20,8 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.4.3",
     "styled-components": "^5.2.0",
-    "typescript": "4.0.2"
+    "typescript": "4.0.2",
+    "node-forge": "0.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "node-forge": "0.10.0"
   }
 }
