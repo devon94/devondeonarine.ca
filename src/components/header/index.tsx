@@ -37,28 +37,6 @@ const Text = styled.p`
   /* text-shadow: 4px 4px #582841; */
 `
 
-const Description = styled.p`
-  max-width: 600px;
-  font-size: 16px;
-  padding: 16px;
-  margin-top: 0px;
-  margin-left: auto;
-  margin-right: auto;
-`
-
-const Image = styled.img`
-  display: flex;
-  position: relative;
-  height: 400px;
-  width: 400px;
-  object-fit: cover;
-  margin-top: 128px;
-  margin-right: auto;
-  margin-left: -96px;
-  z-index: 1;
-  box-sizing: content-box;
-  border: 8px solid #181818;
-`
 const Links = styled.p`
   max-width: 600px;
   font-size: 16px;
