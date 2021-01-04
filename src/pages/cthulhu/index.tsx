@@ -7,6 +7,8 @@ import { initTentacles } from '@devondeonarine/helpers/tentacles';
 const InnerContainer = styled.div`
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
 `
