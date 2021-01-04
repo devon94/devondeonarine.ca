@@ -2,7 +2,7 @@ import Container from '@devondeonarine/components/container';
 import React from 'react';
 import styled from 'styled-components';
 import { isMobile } from 'react-device-detect'
-import { initTentacles } from '@devondeonarine/pages/cthulhu/tentacles';
+import { initTentacles } from '@devondeonarine/helpers/tentacles';
 
 const Canvas = styled.canvas`
     height: 100%;
