@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             }
         }
     `
-    console.log(process.env.STRAPI_URL)
+
     const data = await request<{ posts: Post[] }>(`${process.env.STRAPI_URL}/graphql`, query)
 
     return {

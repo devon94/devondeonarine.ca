@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const ParticleWrapper = styled.div`
     position: absolute;
     z-index: 2;
-    top: 400px;
+    top: 360px;
     left: 50%;
     transform: translateX(-50%);
 `

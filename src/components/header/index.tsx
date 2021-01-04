@@ -23,7 +23,7 @@ const TextContainer = styled.div<StyledProps>`
   box-sizing: content-box;
   cursor: pointer;
   position: absolute;
-  top: 400px;
+  top: 360px;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 8px solid #FFFFFF;
