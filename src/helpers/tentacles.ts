@@ -228,6 +228,7 @@ class Renderer {
         const r1 = map(frequencyData[13], 0, 255, 50, 255)
         const g1 = map(frequencyData[7], 0, 255, 0, 80)
         const b1 = map(frequencyData[7], 0, 255, 0, 80)
+        
         const eyes = document.getElementById('eye_bg')!
         const mouth = document.getElementById('mouth_bg')!
         eyes.style.backgroundColor = 'rgb(' + r1 + ',' + g1 + ',' + b1 + ')'

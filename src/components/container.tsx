@@ -6,8 +6,8 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  background: #181818 !important;
-  background-color: #181818 !important;
+  background: #181818;
+  background-color: #181818;
 `
 
 interface Props {
