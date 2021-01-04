@@ -17,9 +17,11 @@ const Canvas = styled.canvas`
 
 const InnerContainer = styled.div`
   overflow: hidden;
-  position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 `
 
 const TopAccent = styled.div`
