@@ -1,7 +1,7 @@
 import Layout from '@devondeonarine/components/layout'
 import { Post } from '@devondeonarine/models/Post'
 import { request, gql } from 'graphql-request'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import React from 'react'
 
@@ -24,7 +24,7 @@ const Posts: React.FunctionComponent<Props> = (props) => {
 }
 
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
     const query = gql`
         {
             posts {
