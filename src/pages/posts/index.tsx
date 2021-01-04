@@ -11,8 +11,7 @@ interface Props {
 
 const Posts: React.FunctionComponent<Props> = (props) => {
     const { posts } = props
-    const heroPost = posts[0]
-    const morePosts = posts.slice(1)
+
     return (
         <Layout>
             <Head>
