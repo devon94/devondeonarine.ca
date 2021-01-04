@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { startVisualizer } from '../../helpers/homepage_visualizer';
-import "./styles.scss"
+import { startVisualizer, stopVisualizer } from '@devondeonarine/helpers/homepage_visualizer';
 import Particles from './particles';
+
+interface StyledProps {
+  opacity: 0 | 1
+}
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -11,9 +14,8 @@ const HeaderContainer = styled.div`
   margin: 0px 32px;
 `
 
-const TextContainer = styled.div`
+const TextContainer = styled.div<StyledProps>`
   background-color: #25262744;
-  /* box-shadow: 0 0.25rem 1.5rem rgba(0,0,0,0.2); */
   display: flex;
   flex-direction: column;
   padding: 24px 56px;
@@ -21,10 +23,12 @@ const TextContainer = styled.div`
   box-sizing: content-box;
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: 400px;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 8px solid #FFFFFF;
+  transition: all 1.5s ease-in-out;
+  opacity: ${props => props.opacity};
 `
 
 const Text = styled.p`
@@ -32,62 +36,69 @@ const Text = styled.p`
   position: relative;
   color: #f0f0f0;
   font-size: 64px;
+  font-weight: bold;
   padding: 0;
   margin: 0;
-  /* text-shadow: 4px 4px #582841; */
+  line-height: 64px;
 `
 
-const Links = styled.p`
-  max-width: 600px;
-  font-size: 16px;
-  padding: 32px 16px;
-  margin-top: 0px;
-  margin-left: auto;
-  margin-right: auto;
+const LogoContainer = styled.div<StyledProps>`
+  background-color: #25262744;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  padding: 4px 16px;
+  z-index: 5;
+  box-sizing: content-box;
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  left: 0px;
+  border: 4px solid #FFFFFF;
+  transition: all 1.5s ease-in-out;
+  opacity: ${props => props.opacity};
 `
 
-const Link = styled.img`
-  display: flex;
+const LogoText = styled.p`
+  font-family: "Proxima Nova Bold";
   position: relative;
-  height: 32px;
-  width: 32px;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin: 0px 8px;
-
-  :hover {
-    opacity: 0.75;
-  }
+  color: #f0f0f0;
+  font-size: 24px;
+  font-weight: regular;
+  padding: 0;
+  margin: 0;
+  line-height: 24px;
 `
 
 const Header: React.FC = () => {
-  const [mount, setMount] = React.useState<boolean>(false)
   const containerRef = React.useRef<HTMLDivElement>(null)
+  const [isStarted, setIsStarted] = React.useState<boolean>(false)
+  const [logoOpacity, setLogoOpacity] = React.useState<0 | 1>(0)
+  const [textOpacity, setTextOpacity] = React.useState<0 | 1>(1)
 
-  const onClick = () => {
-    setMount(true)
+  const start = () => {
+    setIsStarted(true)
     startVisualizer()
+    setTextOpacity(0)
+    setTimeout(() => setLogoOpacity(1), 1500)
   }
+
+  const pause = () => {
+    setIsStarted(false)
+    stopVisualizer()
+  }
+
 
   return (
     <>
       <HeaderContainer>
-        <TextContainer ref={containerRef} id={"header"} onClick={onClick}>
+        <LogoContainer opacity={logoOpacity} ref={containerRef} id={"header"}>
+          <LogoText>Devon <br />Deonarine</LogoText>
+        </LogoContainer>
+        <TextContainer opacity={textOpacity} ref={containerRef} id={"header"} onClick={start}>
           <Text>Devon <br />Deonarine</Text>
         </TextContainer>
-        {mount ? <Particles /> : null}
+        {isStarted ? <Particles /> : null}
       </HeaderContainer>
-      <audio id={"visualizerAudio"} src={process.env.PUBLIC_URL + "music.mp3"} />
-      <Links>
-        <a href={"https://github.com/devon94"} target={"_blank"} rel="noopener noreferrer">
-          <Link src={process.env.PUBLIC_URL + 'github.png'} />
-        </a>
-        <a href={"https://instagram.com/devon_94"} target={"_blank"} rel="noopener noreferrer">
-          <Link src={process.env.PUBLIC_URL + 'insta.png'} />
-        </a>
-      </Links>
     </>
   );
 }

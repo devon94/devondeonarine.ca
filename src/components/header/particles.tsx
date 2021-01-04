@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 const ParticleWrapper = styled.div`
     position: absolute;
-    z-index: -2;
-    top: 40%;
+    z-index: 2;
+    top: 400px;
     left: 50%;
+    transform: translateX(-50%);
 `
 
 const p = [...new Array(500)].map((_, index) => <div key={index} className='c' />)

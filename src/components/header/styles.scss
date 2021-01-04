@@ -2,16 +2,12 @@ $total: 300; // total particles
 $orb-size: 150px;
 $particle-size: 2px;
 $time: 8.52s; 
-$base-hue: 80;
+$base-hue: 125;
 
 html, body {
   height: 100%;
 }
 
-body {
-  background: black;
-  overflow: hidden;
-}
 
 .wrap {
   width: 0; 
@@ -31,12 +27,13 @@ body {
   position: absolute;
   width: $particle-size;
   height: $particle-size;
-  opacity: 0.75; 
+  opacity: 1.0; 
+  border-radius: 100%;
 }
 
 @for $i from 1 through $total {
-  $z: (random(360) * 1deg); // random angle to rotateZ
-  $y: (random(360) * 1deg); // random to rotateX
+  $z: (random(360) * 5deg); // random angle to rotateZ
+  $y: (random(360) * 5deg); // random to rotateX
   $hue: ((40/$total * $i) + $base-hue); // set hue
   
   .c:nth-child(#{$i}){ // grab the nth particle
@@ -47,11 +44,11 @@ body {
 
   @keyframes orbit#{$i}{ 
     0% {
-        transform: rotateZ(-$z) rotateY($y) translateX($orb-size) rotateZ($z);
-      }
+      transform: rotateZ(-$z) rotateY($y) translateX($orb-size) rotateZ($z);
+    }
     50% {
-        transform: rotateZ(-$z) rotateY($y) translateX( ($orb-size * 0.5) ) rotateZ($z); // translateX * 3
-     }
+      transform: rotateZ(-$z) rotateY($y) translateX(($orb-size * 0.5) ) rotateZ($z); // translateX * 3
+    }
     100% {
       transform: rotateZ(-$z) rotateY($y) translateX($orb-size) rotateZ($z);
     }
