@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const Canvas = styled.canvas`
   background: #181818;
   position: absolute;
-  height: 65%;
+  height: 800px;
   top: 0px;
   width: 100%;
   z-index: 2;

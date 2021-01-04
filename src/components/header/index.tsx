@@ -29,6 +29,10 @@ const TextContainer = styled.div<StyledProps>`
   border: 8px solid #FFFFFF;
   transition: all 1.5s ease-in-out;
   opacity: ${props => props.opacity};
+
+  @media only screen and (max-width: 768px) {
+    padding: 16px 24px;
+  }
 `
 
 const Text = styled.p`

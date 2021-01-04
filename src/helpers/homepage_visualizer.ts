@@ -106,7 +106,7 @@ function fuckShitUp() {
 
 function resizeCanvas() {
     wx = window.innerWidth
-    wy = window.innerHeight * 0.65
+    wy = 800
     calculateC()
     cnv.width = wx
     cnv.height = wy
@@ -121,7 +121,7 @@ function initialize() {
         cnv = document.getElementById('canvas')! as HTMLCanvasElement
         
         wx = window.innerWidth
-        wy = window.innerHeight * 0.65
+        wy = 800
         ctx = cnv.getContext('2d')!
         cnv.width = wx
         cnv.height = wy
