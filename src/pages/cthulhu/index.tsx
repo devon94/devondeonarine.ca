@@ -4,6 +4,13 @@ import styled from 'styled-components';
 import { isMobile } from 'react-device-detect'
 import { initTentacles } from '@devondeonarine/helpers/tentacles';
 
+const InnerContainer = styled.div`
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+`
+
 const Canvas = styled.canvas`
     height: 100%;
     width: 100%;
@@ -153,20 +160,22 @@ const Cthulhu: React.FunctionComponent<Props> = (props) => {
 
     return (
         <Container id={"container"}>
-            {
-                !isMobile ? <TextContainerContainer style={style}>
-                    <TextContainer>
-                        <Text id="circle">ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn</Text>
-                    </TextContainer>
-                </TextContainerContainer> : null
-            }
-            <LogoContainer id={'dm5_logo'}>
-                {isStarted ? <EyeBackground id="eye_bg" /> : null}
-                <Logo onClick={start} src={'/dm5.png'} />
-                {isStarted ? <MouthBackground id="mouth_bg" /> : null}
-            </LogoContainer>
-            <audio preload={"true"} id={"visualizerAudio"} src={'/dm5_c.mp3'} />
-            <Canvas id={"canvas"} />
+            <InnerContainer>
+                {
+                    !isMobile ? <TextContainerContainer style={style}>
+                        <TextContainer>
+                            <Text id="circle">ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn</Text>
+                        </TextContainer>
+                    </TextContainerContainer> : null
+                }
+                <LogoContainer id={'dm5_logo'}>
+                    {isStarted ? <EyeBackground id="eye_bg" /> : null}
+                    <Logo onClick={start} src={'/dm5.png'} />
+                    {isStarted ? <MouthBackground id="mouth_bg" /> : null}
+                </LogoContainer>
+                <audio preload={"true"} id={"visualizerAudio"} src={'/dm5_c.mp3'} />
+                <Canvas id={"canvas"} />
+            </InnerContainer>
         </Container>
     )
 }
