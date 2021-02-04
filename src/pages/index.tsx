@@ -114,7 +114,7 @@ const Index: React.FunctionComponent = (props) => {
               <LinkImage src={'/insta.png'} />
             </a>
           </Links>
-          <audio id={"visualizerAudio"} src={"/polaris.mp3"} preload={"true"} />
+          <audio id={"visualizerAudio"} src={"/astrid.mp3"} preload={"true"} />
         </InnerContainer>
       </Container>
     </Layout>
