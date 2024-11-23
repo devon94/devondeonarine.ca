@@ -1,0 +1,44 @@
+{
+  "name": "devondeonarine.ca",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "6.1.8",
+    "@mui/material": "6.1.8",
+    "@types/audioworklet": "0.0.64",
+    "@types/dat.gui": "^0.7.13",
+    "autoprefixer": "^10.4.20",
+    "dat.gui": "^0.7.9",
+    "fft-js": "^0.0.12",
+    "fs": "0.0.2",
+    "music-metadata": "10.6.0",
+    "next": "14.1.4",
+    "postcss": "^8.4.49",
+    "raw-loader": "^4.0.2",
+    "react": "^18",
+    "tailwind-merge": "2.5.4",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18",
+    "tailwindcss": "^3.4.15",
+    "three": "0.170.0",
+    "webfft": "1.0.3",
+    "styled-components": "^5.3.3",
+    "lucide-react": "0.460.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/styled-components": "^5.1.16",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/three": "0.163.0",
+    "typescript": "^5"
+  }
+}
