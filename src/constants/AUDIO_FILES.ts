@@ -1,4 +1,6 @@
 export const AUDIO_FILES: string[] = [
+  "/audio/ovr.mp3",
+  "/audio/polaris.mp3",
   "/audio/Time.mp3",
   "/audio/rmbl.mp3",
   "/audio/pyramid.mp3",
@@ -12,7 +14,6 @@ export const AUDIO_FILES: string[] = [
   "/audio/inex.mp3",
   "/audio/ktr.mp3",
   "/audio/mono.mp3",
-  "/audio/polaris.mp3",
   "/audio/pon.mp3",
   "/audio/sml.mp3",
   "/audio/tears.mp3",

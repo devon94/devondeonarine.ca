@@ -31,7 +31,8 @@ export const usePerlinVisualization = () => {
   const source = useRef<AudioBufferSourceNode | null>(null)
   const bassPeak = useRef(0)
   const highPeak = useRef(0)
-  const midPeak = useRef(0)
+  const midPeak = useRef(10)
+
   const container = useRef<HTMLElement | null>(null)
   const mat = useRef<THREE.ShaderMaterial | null>(null)
   const _primitive = useRef<THREE.Object3D | null>(null)
@@ -132,7 +133,7 @@ export const usePerlinVisualization = () => {
 
     bassPeak.current = 0
     highPeak.current = 0
-    midPeak.current = 0
+    midPeak.current = 10
 
     start.current = Date.now()
   }, [])
