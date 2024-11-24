@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = () => {
       id="header"
       onClick={() => window.open("https://github.com/devon94", "_blank")}
       className={cn(
-        "backdrop-blur-md rounded-lg flex flex-col p-4 md:px-4 z-10 box-content cursor-pointer absolute top-4 left-4 transition-all duration-[1500ms] ease-in-out",
+        "flex flex-col p-4 md:px-4 z-10 box-content cursor-pointer absolute top-4 left-4 transition-all duration-[1500ms] ease-in-out",
       )}
     >
       <p className="relative text-[#f0f0f0] text-2xl font-normal leading-6 p-0 m-0 bebas-neue-regular">
