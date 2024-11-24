@@ -1,6 +1,6 @@
 "use client"
 
-import { Download } from "lucide-react"
+import { Download, Github, Mail, Phone } from "lucide-react"
 import React from "react"
 import styled, { createGlobalStyle } from "styled-components"
 
@@ -76,6 +76,9 @@ const ContactInfo = styled.div`
 `
 
 const ContactItem = styled.div`
+  display: flex;
+  align-items: center;
+
   a {
     text-decoration: none;
     color: #a37c82;
@@ -87,7 +90,7 @@ const Icon = styled.i`
 `
 
 const Separator = styled.span`
-  margin: 0 16px;
+  margin: 0 8px;
 `
 
 // Section Components
@@ -124,7 +127,7 @@ const SkillsList = styled.div`
 
 const SkillItem = styled.div`
   margin-bottom: 4px;
-  line-height: 16px;
+  line-height: 20px;
   
   span {
     opacity: 0.75;
@@ -139,7 +142,7 @@ const SkillName = styled.b`
 const ExperienceList = styled.div``
 
 const ExperienceItem = styled.div`
-  margin: 16px 0;
+  margin: 8px 0;
   
   &:last-of-type {
     margin-bottom: 0;
@@ -163,7 +166,6 @@ const ExperienceDetails = styled.div`
 `
 
 const ExperienceTitle = styled.div`
-  display: flex;
   align-items: center;
 `
 
@@ -188,7 +190,7 @@ const CompanyInfo = styled.div`
 `
 
 const Description = styled.div`
-  margin-top: 16px;
+  margin-top: 8px;
   
   ul {
     margin-top: 0;
@@ -197,7 +199,7 @@ const Description = styled.div`
   li {
     margin: 4px 0 4px 24px;
     list-style: disc;
-    line-height: 16px;
+    line-height: 20px;
   }
 `
 
@@ -234,16 +236,16 @@ const experienceData: ExperienceItemData[] = [
   {
     logo: "/archon-logo.png",
     position: "Principal Software Developer",
-    techStack: "(Typescript, C#/.NET, React/Next.js, React Native/Expo, Azure)",
+    techStack: "(Typescript, React, React Native, Next.js, Expo, C#, .NET, Azure)",
     duration: "May 2017 - Present",
     company: "Archon Systems Inc.",
     location: "Toronto, Ontario",
     description: [
-      "Spearheaded the modernization of our frontend technologies, patterns, and development processes while actively contributing to feature development. Played a key role in the introduction of TypeScript to our repository, the improvement of our end-to-end testing, addressing technical debt, as well as the migration of our single-page applications to Next.js",
+      "Led the modernization of our frontend technologies and development processes - introduced TypeScript company-wide, introduced Playwright and improved end-to-end testing, addressed technical debt, and migrated several single-page applications to Next.js",
       "Directed our React Native project throughout its lifecycle, from proof of concept to production-ready application. Defined best practices, provided technical guidance, implemented native modules for our custom hardware, migrated to expo, and continuously worked on improving the product",
-      "Closely collaborated with cross-departmental stakeholders, including product managers, technical leads, UX designers, sales representatives, and customer support teams to define project roadmaps, conduct technical investigations, and deliver projects while making informed trade-offs to balance company goals and technical constraints",
+      "Led many projects from start to finish - researched technical solutions, worked with UX, Support, Product and other developers to plan timelines, and balanced business priorities with technical constraints to deliver results",
       "Assisted in architechting and developing a scalable label generation and cloud printing system, including a cross-platform desktop application, frontend label designer, and backend infrastructure",
-      "Worked closely with DevOps to create and maintain CI/CD pipelines for many frontend projects, dockerizing builds and integrating error tracking to streamline the development process",
+      "Worked closely with DevOps to create and maintain CI/CD pipelines for many web and mobile projects, dockerizing builds and integrating sentry to streamline the development and iteration process",
       "Continuously shared knowledge and best practices with the development team through code reviews, pair programming, technical discussions, and mentoring",
       "Actively participated in hiring rounds and played a key role in onboarding new team members, collaborating with HR and management to provide a supportive and smooth experience for incoming talent"
     ]
@@ -256,7 +258,7 @@ const experienceData: ExperienceItemData[] = [
     company: "ProductPinion Inc.",
     location: "Toronto, Ontario",
     description: [
-      "Collaborated with founders and other developers to define the technical roadmap and architecture for the company's minimum viable product, playing a key role in the development and continous improvement of the core product",
+      "Worked with founders to plan and build the company's first product - helped choose technologies, set up initial architecture, and led the development team through ongoing improvements",
       "Assisted in the design of UI/UX enhancements and drove ongoing implementations, leveraging technologies such as React, Next.js, and TypeScript to create a modern, responsive, and user-friendly web application",
       "Architected and developed a scalable Event-Driven microservice using Microsoft Orleans, which serves as a critical component of the product architecture, handling core business logic and AI summarization features",
       "Created and maintained CI/CD pipelines for frontend projects using GitHub Actions and Docker, implementing comprehensive testing and build checks to ensure code quality and reliability. This resulted in a more streamlined and faster deployment cycles"
@@ -291,17 +293,17 @@ export default function ResumePage() {
             </FullName>
             <ContactInfo>
               <ContactItem>
-                <Icon className="fas fa-phone" />
+                <Phone className="w-3 h-3 text-[#353535] mr-1" />
                 <a href="tel:4167951771">(416) 795-1771</a>
               </ContactItem>
               <Separator>|</Separator>
               <ContactItem>
-                <Icon className="fas fa-envelope" />
+                <Mail className="w-3 h-3 text-[#353535] mr-1" />
                 <a href="mailto:hello@devondeonarine.ca">hello@devondeonarine.ca</a>
               </ContactItem>
               <Separator>|</Separator>
               <ContactItem>
-                <Icon className="fab fa-github" />
+                <Github className="w-3 h-3 text-[#353535] mr-1" />
                 <a href="https://github.com/devon94">devon94</a>
               </ContactItem>
             </ContactInfo>
@@ -336,7 +338,7 @@ export default function ResumePage() {
           <Divider />
           <ExperienceList>
             {experienceData.map((experience, index) => (
-              <ExperienceItem key={index}>
+              <ExperienceItem key={index} style={index > 0 ? { marginTop: 16 } : undefined}>
                 <ExperienceHeader>
                   <CompanyLogo src={experience.logo} alt={`${experience.company} Logo`} />
                   <ExperienceDetails>
@@ -365,7 +367,7 @@ export default function ResumePage() {
         <Section>
           <SectionTitle>Education</SectionTitle>
           <Divider />
-          <ExperienceList>
+          <ExperienceList className="pb-8">
             {educationData.map((education, index) => (
               <ExperienceItem key={index}>
                 <ExperienceHeader>
